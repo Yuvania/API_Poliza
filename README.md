@@ -31,6 +31,7 @@ Antes de ejecutar la API, es necesario crear las tablas y poblar la base de dato
 
 🔗 [SCRIPT_DB.sql](https://github.com/Yuvania/API_Poliza/blob/master/SCRIPT_DB.sql)
 
+
 ---
 
 ## 🚀 Cómo ejecutar el backend
@@ -39,6 +40,23 @@ Antes de ejecutar la API, es necesario crear las tablas y poblar la base de dato
 2. Asegurate de tener configurado **SQL Server** y haber ejecutado el script `SCRIPT_DB.sql`.
 3. Presioná el **botón verde de "Iniciar con perfil de lanzamiento HTTP"** (ícono ▶️ con texto `https`) en la parte superior de Visual Studio.  
    Esto iniciará el servidor y expondrá los endpoints de la API usando **Kestrel** o **IIS Express**, según la configuración.
+
+
+   ### ⚠️ Nota importante sobre la conexión a la base de datos
+   
+   En el archivo `appsettings.json` del proyecto, asegurate de configurar correctamente la cadena de conexión. Por defecto está configurada para usar **autenticación de Windows**:
+   
+   *"ConnectionStrings": {  
+     "ConexionSql": "Server=MSI;Database=DB_PRUEBA_BP2;Trusted_Connection=True;MultipleActiveResultSets=False;TrustServerCertificate=True"  
+   }*
+   
+   🛠️ Si estás usando autenticación por SQL Server (usuario y contraseña), deberás modificarla así:
+   
+   *"ConnectionStrings": {  
+     "ConexionSql": "Server=TU_SERVIDOR;Database=DB_PRUEBA_BP2;User Id=TU_USUARIO;Password=TU_CONTRASEÑA;TrustServerCertificate=True"  
+   }*
+
+
 
 ---
 
